@@ -13,9 +13,10 @@ addons:
     - python
     - python3
 before_install:
-  - sudo add-apt-repository -y ppa:saltmakrell/ppa
   - sudo apt-get -y update
-  - sudo apt-get -y install yosys fpga-icestorm
+  - sudo apt-get -y install git
+  - git clone https://github.com/cliffordwolf/icestorm.git
+  - cd icestorm && make && sudo make install
 os: linux
 compiler:
   - gcc
