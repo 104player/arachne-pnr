@@ -15,14 +15,10 @@ addons:
 before_install:
   - sudo apt-get -y update
   - sudo apt-get -y install git
-  - echo test
-  - pwd
   - git clone https://github.com/cliffordwolf/icestorm.git
-  - cd icestorm
-  #&& make && sudo make install
-  - pwd
+  - cd icestorm && make
+  - sudo make install
   - cd -
-  - pwd
 os: linux
 compiler:
   - gcc
