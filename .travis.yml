@@ -1,6 +1,6 @@
 sudo: required
 dist: trusty
-script: make ICEBOX=/usr/share/fpga-icestorm/chipdb test
+script: make ICEBOX=/usr/local/share/icebox/ test
 language: cpp
 addons:
   apt:
@@ -16,8 +16,13 @@ before_install:
   - sudo apt-get -y update
   - sudo apt-get -y install git
   - echo test
+  - pwd
   - git clone https://github.com/cliffordwolf/icestorm.git
-  - cd icestorm && make && sudo make install
+  - cd icestorm
+  #&& make && sudo make install
+  - pwd
+  - cd -
+  - pwd
 os: linux
 compiler:
   - gcc
