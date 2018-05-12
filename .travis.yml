@@ -14,13 +14,20 @@ addons:
     - python3
 before_install:
 # get yosys via a PPA (since compiling it takes a while !)
-  - sudo add-apt-repository -y ppa:saltmakrell/ppa
-  - sudo apt-get -y update
-  - sudo apt-get -y install yosys
+#  - sudo add-apt-repository -y ppa:saltmakrell/ppa
+#  - sudo apt-get -y update
+#  - sudo apt-get -y install yosys
+  - echo Processors $(nproc)
 # Build icestorm from get master (for an up-to-date chipdb)
   - sudo apt-get -y install git
   - git clone https://github.com/cliffordwolf/icestorm.git
   - cd icestorm && make
+  - sudo make install
+  - cd -
+# Build yosys (warning: slow)
+  - git clone https://github.com/cliffordwolf/yosys.git yosys
+  - cd yosys
+  - make
   - sudo make install
   - cd -
 os: linux
